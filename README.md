@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# Posts Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based application for managing posts. Users can view, add, edit, and delete posts. The application leverages Ant Design for UI components and Axios for API interactions, and it supports error handling via a separate utility.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Display Posts:** View all posts in a paginated table.
+- **Add New Post:** Use a floating button to add a new post through a modal form.
+- **Edit Existing Post:** Update the title and body of a post directly from the table.
+- **Delete Post:** Remove posts with a confirmation message.
+- **Error Notifications:** Display user-friendly error messages for API failures.
 
-## Expanding the ESLint configuration
+## Technology Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React with TypeScript
+- Ant Design for UI components
+- Axios for API requests
+- JSONPlaceholder as a mock API
 
-- Configure the top-level `parserOptions` property like this:
+## Assumptions
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- The API follows the REST pattern and supports CRUD operations on the `/posts` endpoint.
+- Data updates on the mock API (JSONPlaceholder) are simulated but not persisted.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Challenges Faced
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Managing state between multiple components while keeping the logic modular and reusable.
+- Structuring error handling to provide meaningful messages without disrupting the user experience.
+- Balancing UI responsiveness with API call delays for loading states.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Time Spent
+
+- **Initial Setup:** 1 hour
+- **API Integration:** 2 hours
+- **Component Development:** 3 hours
+- **Error Handling:** 1.5 hours
+- **Testing and Debugging:** 1 hour
+
+**Total:** ~9 hours
+
+## How to Run the Application
+
+### Prerequisites
+
+- Node.js (>=14.x)
+- npm or yarn
+
+### Installation Steps
+
+1. **Clone the Repository:**
+
+    ```bash
+    git clone <repository_url>
+    cd posts-management-app
+    ```
+
+2. **Install Dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3. **Set Environment Variables:**
+    Create a `.env` file in the root directory with the following content:
+
+    ```env
+    VITE_BASE_URL=https://jsonplaceholder.typicode.com
+    ```
+
+4. **Run the Application:**
+
+    ```bash
+    npm start
+    # or
+    yarn start
+    ```
+
+5. **Access the Application:**
+    Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+
+### Building for Production
+
+To create an optimized build of the application, run:
+
+```bash
+npm run build
+# or
+yarn build
