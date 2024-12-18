@@ -1,12 +1,12 @@
 import React from "react";
-import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
-import PostList from "./components/Table/Table";
-// import ErrorBoundary from "antd/es/alert/ErrorBoundary";
+import ErrorBoundary from "antd/es/alert/ErrorBoundary";
+
+import Home from "./pages/home/Home";
 
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
-      <PostList />
+      <Home />
     </ErrorBoundary>
   );
 };
